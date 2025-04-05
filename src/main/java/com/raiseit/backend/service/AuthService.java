@@ -47,12 +47,13 @@ public class AuthService {
     }
 
     public void register(RegisterRequest request) {
+
+        if (userRepo.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("User already exists with email: " + request.getEmail());
+        }
+
         Role role = roleRepo.findByName(request.getRole())
-                .orElseGet(() -> {
-                    Role newRole = new Role();
-                    newRole.setName(request.getRole());
-                    return roleRepo.save(newRole);
-                });
+                .orElseThrow(() -> new RuntimeException("Role not found: " + request.getRole()));
 
 
         User user = new User();
