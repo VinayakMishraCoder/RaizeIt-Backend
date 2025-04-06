@@ -1,38 +1,31 @@
 package com.raiseit.backend.olaServices.restClient;
 
-import com.raiseit.backend.olaServices.dto.request.DistanceMatrixRequestDto;
-import com.raiseit.backend.olaServices.dto.response.DistanceMatrixResponseDto;
+import com.raiseit.backend.olaServices.dto.response.GeocodeResponse;
+import com.raiseit.backend.utils.RestApiClient;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
 public class OlaApiClient {
 
-    private final RestTemplate restTemplate;
-    private final String BASE_URL = "https://api.ola.com/routing/v1/distanceMatrix";
+    final String BASE_URL =  "https://api.olamaps.io";
 
-    public DistanceMatrixResponseDto getDistanceMatrix(DistanceMatrixRequestDto requestDto) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Request-Id", "some-uuid");  // Generate unique UUID in production
-        headers.set("X-Correlation-Id", "some-uuid");
+    @Value("${ola.api.key}")
+    public static String API_KEY;
 
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
+    private final RestApiClient restApiClient;
 
-        String url = BASE_URL + "?origins=" + requestDto.getOrigins() +
-                "&destinations=" + requestDto.getDestinations() +
-                "&mode=" + requestDto.getMode();
-
-        ResponseEntity<DistanceMatrixResponseDto> response = restTemplate.exchange(
-                url, HttpMethod.GET, entity, DistanceMatrixResponseDto.class
+    public GeocodeResponse forwardGeocode(Map<String, String> headers, Map<String, String> queryParams) {
+        return restApiClient.get(
+                BASE_URL,
+                "/places/v1/geocode",
+                headers,
+                queryParams,
+                GeocodeResponse.class
         );
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            return response.getBody();
-        } else {
-            throw new RuntimeException("Failed to fetch data from Ola API");
-        }
     }
 }
