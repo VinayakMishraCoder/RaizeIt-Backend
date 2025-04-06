@@ -1,6 +1,6 @@
 package com.raiseit.backend.service;
 
-import com.raiseit.backend.dto.UserRequest;
+import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.User;
 import org.springframework.stereotype.Component;
 

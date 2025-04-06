@@ -1,6 +1,6 @@
 package com.raiseit.backend.controller;
 
-import com.raiseit.backend.dto.UserRequest;
+import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.User;
 import com.raiseit.backend.service.UserService;
 import com.raiseit.backend.utils.ResultWrapper;

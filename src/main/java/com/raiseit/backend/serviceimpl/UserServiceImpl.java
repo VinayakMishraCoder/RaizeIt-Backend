@@ -1,6 +1,6 @@
 package com.raiseit.backend.serviceimpl;
 
-import com.raiseit.backend.dto.UserRequest;
+import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.Role;
 import com.raiseit.backend.model.User;
 import com.raiseit.backend.repository.RoleRepository;

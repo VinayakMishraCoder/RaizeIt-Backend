@@ -1,4 +1,4 @@
-package com.raiseit.backend.dto;
+package com.raiseit.backend.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

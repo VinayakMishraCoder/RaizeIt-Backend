@@ -1,5 +1,6 @@
-package com.raiseit.backend.dto;
+package com.raiseit.backend.dto.auth;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -7,7 +8,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class RegisterRequest {
+@Tag(
+        name = "SuperUserRegisterRequest",
+        description = "A superuser can create any user at first without JWT auth." + "(can be Governer, or nay higher entity we decide)"
+)
+public class SuperUserRegisterRequest {
 
     @NotBlank(message = "Name is required")
     private String name;

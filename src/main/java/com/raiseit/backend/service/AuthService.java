@@ -1,7 +1,7 @@
 package com.raiseit.backend.service;
 
 import com.raiseit.backend.config.JwtUtils;
-import com.raiseit.backend.dto.RegisterRequest;
+import com.raiseit.backend.dto.auth.SuperUserRegisterRequest;
 import com.raiseit.backend.model.Role;
 import com.raiseit.backend.model.User;
 import com.raiseit.backend.repository.RoleRepository;
@@ -46,7 +46,7 @@ public class AuthService {
         return jwtUtils.generateToken(userDetails);
     }
 
-    public void register(RegisterRequest request) {
+    public void register(SuperUserRegisterRequest request) {
 
         if (userRepo.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("User already exists with email: " + request.getEmail());
