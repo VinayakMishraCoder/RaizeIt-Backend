@@ -1,4 +1,4 @@
-package com.raiseit.backend.utils;
+package com.raiseit.backend.olaServices.restClient;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;

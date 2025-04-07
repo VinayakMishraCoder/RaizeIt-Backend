@@ -1,6 +1,6 @@
 package com.raiseit.backend.olaServices.cases.geocoding;
 
-import com.raiseit.backend.olaServices.dto.response.GeocodeResponse;
+import com.raiseit.backend.olaServices.dto.response.ReverseGeocodeResponse;
 import com.raiseit.backend.olaServices.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,18 +8,21 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.UUID;
 
-
 /**
- * Provides probable geographic coordinates and detailed
- * location information including formatted address for the given address as input.
+ * This API converts geographic coordinates back into readable addresses or place names
+ * based upon the satisfying criteria with a reasonable probability.
  * */
 @Service
 @RequiredArgsConstructor
-public class ForwardGeocodeUseCase {
+public class ReverseGeocodeUseCase {
 
     private final OlaApiService olaMapsClient;
 
-    public GeocodeResponse execute(String address) {
+    /*
+    * latlng :- The coordinates of which you want to do the reverse geocoding to get the address
+    * i.e. :- 12.931316595874005,77.61649243443775
+    * */
+    public ReverseGeocodeResponse execute(String address) {
 
         Map<String, String> headers = Map.of(
                 "X-Request-Id", UUID.randomUUID().toString(),
@@ -27,11 +30,10 @@ public class ForwardGeocodeUseCase {
         );
 
         Map<String, String> queryParams = Map.of(
-                "address", address,
-                "language", "English",
+                "latlng", address,
                 "api_key", OlaApiService.API_KEY
         );
 
-        return olaMapsClient.forwardGeocode(headers, queryParams);
+        return olaMapsClient.reverseGeocode(headers, queryParams);
     }
 }
