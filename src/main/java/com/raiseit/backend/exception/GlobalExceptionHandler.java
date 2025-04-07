@@ -17,13 +17,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResultWrapper<?>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getFieldErrors().forEach(error ->
-                errors.put(error.getField(), error.getDefaultMessage()));
+                errors.put(error.getField(), error.getDefaultMessage())
+        );
 
         return ResponseEntity.badRequest().body(ResultWrapper.failure("Validation failed: " + errors.toString()));
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ResultWrapper<?>> handleRuntime(RuntimeException ex) {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ResultWrapper<?>> handleRuntime(Exception ex) {
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ResultWrapper.failure("Error: " + ex.getMessage()));
     }
 }

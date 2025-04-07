@@ -36,7 +36,6 @@ public class DistanceMatrixUseCase {
         queryParams.put("origins", origins);
         queryParams.put("destinations", destinations);
         queryParams.put("mode", "driving");
-        queryParams.put("api_key", OlaApiService.API_KEY);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("accept", "application/json");

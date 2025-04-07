@@ -3,6 +3,7 @@ package com.raiseit.backend.olaServices.cases.geocoding;
 import com.raiseit.backend.olaServices.dto.response.GeocodeResponse;
 import com.raiseit.backend.olaServices.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -17,7 +18,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ForwardGeocodeUseCase {
 
-    private final OlaApiService olaMapsClient;
+    @Autowired
+    private OlaApiService olaMapsClient;
 
     public GeocodeResponse execute(String address) {
 
@@ -28,8 +30,7 @@ public class ForwardGeocodeUseCase {
 
         Map<String, String> queryParams = Map.of(
                 "address", address,
-                "language", "English",
-                "api_key", OlaApiService.API_KEY
+                "language", "English"
         );
 
         return olaMapsClient.forwardGeocode(headers, queryParams);

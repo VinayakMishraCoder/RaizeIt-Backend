@@ -30,8 +30,7 @@ public class ReverseGeocodeUseCase {
         );
 
         Map<String, String> queryParams = Map.of(
-                "latlng", address,
-                "api_key", OlaApiService.API_KEY
+                "latlng", address
         );
 
         return olaMapsClient.reverseGeocode(headers, queryParams);

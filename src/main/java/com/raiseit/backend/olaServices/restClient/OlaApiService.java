@@ -4,6 +4,7 @@ import com.raiseit.backend.olaServices.dto.response.DistanceMatrixResponse;
 import com.raiseit.backend.olaServices.dto.response.GeocodeResponse;
 import com.raiseit.backend.olaServices.dto.response.ReverseGeocodeResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +17,14 @@ public class OlaApiService {
     final String BASE_URL =  "https://api.olamaps.io";
 
     @Value("${ola.api.key}")
-    public static String API_KEY;
+    public String API_KEY;
 
+    @Autowired
     private final RestApiClient restApiClient;
 
     public GeocodeResponse forwardGeocode(Map<String, String> headers, Map<String, String> queryParams) {
+        queryParams.put("api_key", API_KEY);
+        System.out.println("Places:- " + API_KEY);
         return restApiClient.get(
                 BASE_URL,
                 "/places/v1/geocode",
@@ -31,6 +35,7 @@ public class OlaApiService {
     }
 
     public ReverseGeocodeResponse reverseGeocode(Map<String, String> headers, Map<String, String> queryParams) {
+        queryParams.put("api_key", API_KEY);
         return restApiClient.get(
                 BASE_URL,
                 "/places/v1/reverse-geocode",
@@ -41,6 +46,7 @@ public class OlaApiService {
     }
 
     public DistanceMatrixResponse getDistanceMatrixResponse(Map<String, String> headers, Map<String, String> queryParams) {
+        queryParams.put("api_key", API_KEY);
         return restApiClient.get(
                 BASE_URL,
                 "/routing/v1/distanceMatrix",
