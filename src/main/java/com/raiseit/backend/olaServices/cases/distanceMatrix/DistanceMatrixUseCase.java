@@ -14,14 +14,10 @@ import java.util.Map;
  * The origin and destination locations are pipe-separated.
  *
  *
- * origins *
- * string
- * (query)
+ * origins : string (query)
  * Pipe separated origin coordinates in the format lat1,lng1|lat2,lng2 e.g: 28.71866756826579,77.03699668376802|28.638555357785652,76.96550156007675
  *
- * destinations *
- * string
- * (query)
+ * destinations : string (query)
  * Pipe separated destination coordinates in the format lat1,lng1|lat2,lng2 e.g: 28.638555357785652,76.96550156007675|28.53966907108812,77.05190669909288
  * */
 @Service

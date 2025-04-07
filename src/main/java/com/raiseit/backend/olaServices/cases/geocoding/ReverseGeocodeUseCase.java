@@ -5,6 +5,7 @@ import com.raiseit.backend.olaServices.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -29,8 +30,10 @@ public class ReverseGeocodeUseCase {
                 "X-Correlation-Id", UUID.randomUUID().toString()
         );
 
-        Map<String, String> queryParams = Map.of(
-                "latlng", address
+        Map<String, String> queryParams = new HashMap<>(
+                Map.of(
+                        "latlng", address
+                )
         );
 
         return olaMapsClient.reverseGeocode(headers, queryParams);

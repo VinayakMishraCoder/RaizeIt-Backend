@@ -24,7 +24,6 @@ public class OlaApiService {
 
     public GeocodeResponse forwardGeocode(Map<String, String> headers, Map<String, String> queryParams) {
         queryParams.put("api_key", API_KEY);
-        System.out.println("Places:- " + API_KEY);
         return restApiClient.get(
                 BASE_URL,
                 "/places/v1/geocode",

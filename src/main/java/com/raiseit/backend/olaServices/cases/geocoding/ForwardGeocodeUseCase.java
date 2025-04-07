@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -28,9 +29,11 @@ public class ForwardGeocodeUseCase {
                 "X-Correlation-Id", UUID.randomUUID().toString()
         );
 
-        Map<String, String> queryParams = Map.of(
-                "address", address,
-                "language", "English"
+        Map<String, String> queryParams = new HashMap<>( // important to keep it mutable, so can add api key.
+                Map.of(
+                        "address", address,
+                        "language", "English"
+                )
         );
 
         return olaMapsClient.forwardGeocode(headers, queryParams);
