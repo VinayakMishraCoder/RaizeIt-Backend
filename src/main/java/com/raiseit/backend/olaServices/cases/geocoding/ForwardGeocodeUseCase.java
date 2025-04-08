@@ -20,7 +20,7 @@ import java.util.UUID;
 public class ForwardGeocodeUseCase {
 
     @Autowired
-    private OlaApiService olaMapsClient;
+    private OlaApiService olaMapsService;
 
     public GeocodeResponse execute(String address) {
 
@@ -36,6 +36,6 @@ public class ForwardGeocodeUseCase {
                 )
         );
 
-        return olaMapsClient.forwardGeocode(headers, queryParams);
+        return olaMapsService.forwardGeocode(headers, queryParams);
     }
 }

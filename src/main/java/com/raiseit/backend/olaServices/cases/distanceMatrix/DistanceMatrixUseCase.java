@@ -24,7 +24,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class DistanceMatrixUseCase {
 
-    private final OlaApiService olaMapsClient;
+    private final OlaApiService olaMapsService;
 
     public DistanceMatrixResponse execute(String origins, String destinations) {
 
@@ -36,6 +36,6 @@ public class DistanceMatrixUseCase {
         Map<String, String> headers = new HashMap<>();
         headers.put("accept", "application/json");
 
-        return olaMapsClient.getDistanceMatrixResponse(headers, queryParams);
+        return olaMapsService.getDistanceMatrixResponse(headers, queryParams);
     }
 }

@@ -20,7 +20,7 @@ public class OlaApiService {
     public String API_KEY;
 
     @Autowired
-    private final RestApiClient restApiClient;
+    private RestApiClient restApiClient;
 
     public GeocodeResponse forwardGeocode(Map<String, String> headers, Map<String, String> queryParams) {
         queryParams.put("api_key", API_KEY);

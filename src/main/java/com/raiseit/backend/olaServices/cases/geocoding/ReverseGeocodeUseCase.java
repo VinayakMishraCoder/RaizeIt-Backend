@@ -17,7 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ReverseGeocodeUseCase {
 
-    private final OlaApiService olaMapsClient;
+    private final OlaApiService olaMapsService;
 
     /*
     * latlng :- The coordinates of which you want to do the reverse geocoding to get the address
@@ -36,6 +36,6 @@ public class ReverseGeocodeUseCase {
                 )
         );
 
-        return olaMapsClient.reverseGeocode(headers, queryParams);
+        return olaMapsService.reverseGeocode(headers, queryParams);
     }
 }
