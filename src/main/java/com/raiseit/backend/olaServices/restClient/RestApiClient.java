@@ -1,5 +1,6 @@
 package com.raiseit.backend.olaServices.restClient;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -11,11 +12,8 @@ import java.util.Map;
 @Component
 public class RestApiClient {
 
-    private final RestTemplate restTemplate;
-
-    public RestApiClient() {
-        this.restTemplate = new RestTemplate();
-    }
+    @Autowired
+    private RestTemplate restTemplate;
 
     private URI buildUri(String baseUrl, String path, Map<String, String> queryParams) {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(baseUrl + path);
