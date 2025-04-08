@@ -3,6 +3,7 @@ package com.raiseit.backend.olaServices.cases.geocoding;
 import com.raiseit.backend.olaServices.dto.response.ReverseGeocodeResponse;
 import com.raiseit.backend.olaServices.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -17,7 +18,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ReverseGeocodeUseCase {
 
-    private final OlaApiService olaMapsService;
+    @Autowired
+    private OlaApiService olaApiService;
 
     /*
     * latlng :- The coordinates of which you want to do the reverse geocoding to get the address
@@ -36,6 +38,6 @@ public class ReverseGeocodeUseCase {
                 )
         );
 
-        return olaMapsService.reverseGeocode(headers, queryParams);
+        return olaApiService.reverseGeocode(headers, queryParams);
     }
 }

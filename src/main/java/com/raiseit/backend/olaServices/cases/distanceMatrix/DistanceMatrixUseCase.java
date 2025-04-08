@@ -3,6 +3,7 @@ package com.raiseit.backend.olaServices.cases.distanceMatrix;
 import com.raiseit.backend.olaServices.dto.response.DistanceMatrixResponse;
 import com.raiseit.backend.olaServices.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -24,7 +25,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class DistanceMatrixUseCase {
 
-    private final OlaApiService olaMapsService;
+    @Autowired
+    private OlaApiService olaApiService;
 
     public DistanceMatrixResponse execute(String origins, String destinations) {
 
@@ -36,6 +38,6 @@ public class DistanceMatrixUseCase {
         Map<String, String> headers = new HashMap<>();
         headers.put("accept", "application/json");
 
-        return olaMapsService.getDistanceMatrixResponse(headers, queryParams);
+        return olaApiService.getDistanceMatrixResponse(headers, queryParams);
     }
 }

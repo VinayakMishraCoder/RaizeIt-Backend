@@ -1,4 +1,4 @@
-package com.raiseit.backend.config;
+package com.raiseit.backend.utils.jwt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
