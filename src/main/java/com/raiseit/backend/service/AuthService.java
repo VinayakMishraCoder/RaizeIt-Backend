@@ -1,6 +1,6 @@
 package com.raiseit.backend.service;
 
-import com.raiseit.backend.config.JwtUtils;
+import com.raiseit.backend.utils.jwt.JwtUtils;
 import com.raiseit.backend.dto.auth.SuperUserRegisterRequest;
 import com.raiseit.backend.model.Role;
 import com.raiseit.backend.model.User;

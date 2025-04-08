@@ -1,6 +1,7 @@
 package com.raiseit.backend.config;
 
 import com.raiseit.backend.service.CustomUserDetailsService;
+import com.raiseit.backend.utils.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
