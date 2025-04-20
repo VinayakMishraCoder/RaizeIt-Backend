@@ -1,6 +1,6 @@
 package com.raiseit.backend.config;
 
-import com.raiseit.backend.service.CustomUserDetailsService;
+import com.raiseit.backend.services.customeruser.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

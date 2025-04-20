@@ -2,7 +2,7 @@ package com.raiseit.backend.controller;
 
 import com.raiseit.backend.dto.auth.AuthRequest;
 import com.raiseit.backend.dto.auth.SuperUserRegisterRequest;
-import com.raiseit.backend.service.AuthService;
+import com.raiseit.backend.services.auth.AuthService;
 import com.raiseit.backend.utils.ResultWrapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

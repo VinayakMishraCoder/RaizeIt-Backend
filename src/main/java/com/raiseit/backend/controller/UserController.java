@@ -2,7 +2,7 @@ package com.raiseit.backend.controller;
 
 import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.User;
-import com.raiseit.backend.service.UserService;
+import com.raiseit.backend.services.user.UserService;
 import com.raiseit.backend.utils.ResultWrapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/create-user")
     public ResponseEntity<ResultWrapper<?>> createUser(@Valid @RequestBody UserRequest request) {
         User user = userService.createUser(request);
         return ResponseEntity.ok(ResultWrapper.success("User created successfully", user));
@@ -33,7 +33,7 @@ public class UserController {
         return ResponseEntity.ok(ResultWrapper.success("User retrieved", user));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-user/{id}")
     public ResponseEntity<ResultWrapper<?>> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest request) {
         User user = userService.updateUser(id, request);
         return ResponseEntity.ok(ResultWrapper.success("User updated successfully", user));
@@ -45,7 +45,7 @@ public class UserController {
         return ResponseEntity.ok(ResultWrapper.success("User deleted successfully", null));
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<ResultWrapper<?>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(ResultWrapper.success("Users fetched", users));

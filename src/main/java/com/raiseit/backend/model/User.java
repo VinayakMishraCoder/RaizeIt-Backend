@@ -28,3 +28,8 @@ public class User {
 
 }
 
+/**
+ * Approval start by {last rank, is_approver=true, status=active}.
+ * Next goes by {next lesser rank, is_approver=true, status-active=true}.
+ * Last
+ * */

@@ -1,4 +1,4 @@
-package com.raiseit.backend.service;
+package com.raiseit.backend.services.user;
 
 import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.User;

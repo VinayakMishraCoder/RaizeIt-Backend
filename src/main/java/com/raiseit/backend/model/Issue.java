@@ -37,12 +37,15 @@ public class Issue {
     private String address;
 
     @Column(name = "issuer_id")
-    private Long issuerId; // You can use @ManyToOne if you have a User entity
+    private Long issuerId;
 
-    @ElementCollection
-    @CollectionTable(name = "issue_upvoters", joinColumns = @JoinColumn(name = "issue_id"))
-    @Column(name = "user_id")
-    private List<Long> upvoters;
+    @ManyToMany
+    @JoinTable(
+            name = "issue_upvoters",
+            joinColumns = @JoinColumn(name = "issue_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> upVoters;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 

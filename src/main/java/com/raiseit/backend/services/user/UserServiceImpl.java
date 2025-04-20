@@ -1,11 +1,10 @@
-package com.raiseit.backend.serviceimpl;
+package com.raiseit.backend.services.user;
 
 import com.raiseit.backend.dto.user.UserRequest;
 import com.raiseit.backend.model.Role;
 import com.raiseit.backend.model.User;
 import com.raiseit.backend.repository.RoleRepository;
 import com.raiseit.backend.repository.UserRepository;
-import com.raiseit.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

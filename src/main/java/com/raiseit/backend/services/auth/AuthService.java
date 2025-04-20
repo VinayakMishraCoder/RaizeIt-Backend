@@ -1,4 +1,4 @@
-package com.raiseit.backend.service;
+package com.raiseit.backend.services.auth;
 
 import com.raiseit.backend.config.JwtUtils;
 import com.raiseit.backend.dto.auth.SuperUserRegisterRequest;
