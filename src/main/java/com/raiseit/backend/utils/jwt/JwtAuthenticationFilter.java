@@ -1,4 +1,4 @@
-package com.raiseit.backend.config;
+package com.raiseit.backend.utils.jwt;
 
 import com.raiseit.backend.services.customeruser.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
