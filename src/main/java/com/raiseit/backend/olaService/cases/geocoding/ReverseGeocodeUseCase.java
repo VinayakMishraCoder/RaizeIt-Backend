@@ -1,7 +1,7 @@
-package com.raiseit.backend.olaServices.cases.geocoding;
+package com.raiseit.backend.olaService.cases.geocoding;
 
-import com.raiseit.backend.olaServices.dto.response.ReverseGeocodeResponse;
-import com.raiseit.backend.olaServices.restClient.OlaApiService;
+import com.raiseit.backend.olaService.dto.response.ReverseGeocodeResponse;
+import com.raiseit.backend.olaService.restClient.OlaApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

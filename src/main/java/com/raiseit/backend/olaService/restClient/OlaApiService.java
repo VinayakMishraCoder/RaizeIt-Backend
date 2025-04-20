@@ -1,8 +1,8 @@
-package com.raiseit.backend.olaServices.restClient;
+package com.raiseit.backend.olaService.restClient;
 
-import com.raiseit.backend.olaServices.dto.response.DistanceMatrixResponse;
-import com.raiseit.backend.olaServices.dto.response.GeocodeResponse;
-import com.raiseit.backend.olaServices.dto.response.ReverseGeocodeResponse;
+import com.raiseit.backend.olaService.dto.response.DistanceMatrixResponse;
+import com.raiseit.backend.olaService.dto.response.GeocodeResponse;
+import com.raiseit.backend.olaService.dto.response.ReverseGeocodeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

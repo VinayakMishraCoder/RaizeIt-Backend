@@ -1,4 +1,4 @@
-package com.raiseit.backend.olaServices.restClient;
+package com.raiseit.backend.olaService.restClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;

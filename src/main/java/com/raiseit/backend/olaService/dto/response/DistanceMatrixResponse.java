@@ -1,4 +1,4 @@
-package com.raiseit.backend.olaServices.dto.response;
+package com.raiseit.backend.olaService.dto.response;
 
 import lombok.Data;
 import java.util.List;
